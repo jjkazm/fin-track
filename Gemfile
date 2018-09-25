@@ -12,6 +12,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem "haml"
 gem "haml-rails", "~> 1.0"
 
+# Use devise
+gem 'devise'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
