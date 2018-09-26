@@ -1,0 +1,11 @@
+%h1 My portfolio
+%h3 Search for Stocks
+%div.p-0
+  = form_tag "#", method: :get do
+    .form-group.row.text-center.p-0.col-md-12
+      .col-md-10
+        = text_field_tag :stock, params[:stock], placeholder:"Stock ticker symbol",
+            autofocus: true, class: "form-control search-box input-lg"
+      .col-md-2
+        = button_tag(type: :submit, class: "btn btn-success") do
+          Look up a stock
