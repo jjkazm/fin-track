@@ -1,0 +1,12 @@
+- if params[:stock].present?
+  .card
+    .row.text-center.py-2
+      .col-md-4
+        %strong Company:
+        #{@stock.name}
+      .col-md-4
+        %strong Symbol:
+        #{@stock.ticker}
+      .col-md-4
+        %strong Price:
+        #{@stock.last_price}

@@ -25,6 +25,9 @@ gem 'devise-bootstrap-views'
 # Use stock
 gem "stock_quote", '~> 2.0.0'
 
+# Use font awesome
+gem "font-awesome-rails" 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
