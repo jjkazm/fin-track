@@ -12,7 +12,21 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem "haml"
 gem "haml-rails", "~> 1.0"
 
+# Use devise
+gem 'devise'
 
+# Use bootstrap4
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+
+# Use devise-bootstap-views
+gem 'devise-bootstrap-views'
+
+# Use stock
+gem "stock_quote", '~> 2.0.0'
+
+# Use font awesome
+gem "font-awesome-rails" 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
