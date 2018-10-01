@@ -1,5 +1,6 @@
 %h1 My portfolio
-= render 'layouts/messages'
+#message
+  = render 'layouts/messages'
 %h3 Search for Stocks
 %div.p-0
   = form_tag search_stocks_path, remote:true, method: :get do
