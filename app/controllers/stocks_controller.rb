@@ -7,12 +7,16 @@ class StocksController < ApplicationController
           format.js {render partial:'users/result'}
         end
       else
-        flash[:danger] = "Provided code is invalid"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:danger] = "Provided code is invalid"
+          format.js {render partial:'users/result'}
+        end
       end
     else
-      flash[:danger] = "You need to provide company's code"
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:danger] = "You need to provide company's code"
+        format.js {render partial:'users/result'}
+      end
     end
   end
 end

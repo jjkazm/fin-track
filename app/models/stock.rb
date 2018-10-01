@@ -9,7 +9,7 @@ class Stock < ApplicationRecord
         new(name: searched_stock.company_name, ticker: searched_stock.symbol, last_price: searched_stock.latest_price)
       end
     rescue Exception => e
-      return
+      return nil
     end
   end
 end
