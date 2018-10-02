@@ -11,8 +11,17 @@
         %strong Price:
         #{@stock.last_price}
     .row
-      .col-md-3.offset-md-9.py-1
-        =link_to "Add to portfolio", user_stocks_path(user: current_user,
-                                    ticker: @stock.ticker),
-                                    class: "btn btn-sm btn-success",
-                                    method: :post
+      - if current_user.can_be_added?(@stock.ticker)
+        .col-md-3.offset-md-9.py-1
+          =link_to "Add to portfolio", user_stocks_path(user: current_user,
+                                      ticker: @stock.ticker),
+                                      class: "btn btn-sm btn-success",
+                                      method: :post
+      - else
+        .text-center.col-md-12.py-1
+          .badge.badge-secondary
+            You cant add #{ @stock.name}, because
+            -if current_user.above_limit?
+              you reached the limit of 10 stocks.
+            -else
+              you are already tracking it.
