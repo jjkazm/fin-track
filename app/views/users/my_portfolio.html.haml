@@ -1,4 +1,5 @@
 %h1 My portfolio
+= link_to "Logout", destroy_user_session_path, method: :delete
 %h3 Search for Stocks
 %div.p-0
   = form_tag search_stocks_path, remote:true, method: :get do
