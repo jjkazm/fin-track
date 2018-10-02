@@ -10,3 +10,9 @@
       .col-md-4
         %strong Price:
         #{@stock.last_price}
+    .row
+      .col-md-3.offset-md-9.py-1
+        =link_to "Add to portfolio", user_stocks_path(user: current_user,
+                                    ticker: @stock.ticker),
+                                    class: "btn btn-sm btn-success",
+                                    method: :post
