@@ -1,44 +1,20 @@
-.navbar.navbar-default.navbar-static-top
-  .container
-    %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %a.navbar-brand(href="#") FinTrack
-    .navbar-collapse.collapse.navbar-responsive-collapse
-      %ul.nav.navbar-nav
-        %li= link_to "Link 1", "/path1"
-        %li= link_to "Link 2", "/path2"
-        %li= link_to "Link 3", "/path3"
-        %li= link_to "Link 3", "/path3"
-
-        <div class="navbar navbar-default navbar-static-top">
-          <div class="container">
-            <%= link_to "Finance Tracker", root_path, class: "navbar-brand" %>
-            <% if current_user %>
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <div class="navbar-collapse collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav col-md-6">
-                  <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
-                  <li><%= link_to "My Profile", edit_registration_path(current_user) %></li>
-                  <li><%= link_to "My Friends", my_friends_path  %></li>
-                </ul>
-                <ul class="nav navbar-right col-md-4">
-                  <li class="col-md-8 user-name text-right">
-                    <i class="fa fa-user"></i>
-                    <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
-                  </li>
-                  <li class="col-md-4 logout">
-                    <%= link_to("logout", destroy_user_session_path,
-                                        class: "btn btn-xs btn-danger", method: :delete) %>
-                  </li>
-                </ul>
-              </div>
-            <% end %>
-          </div>
-        </div>
+.navbar.navbar-expand-lg.navbar-light.bg-secondary
+  = link_to "Finance Tracker", root_path, class: "navbar-brand"
+  - if current_user
+    %button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarSupportedContent
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          = link_to "My Portfolio", my_portfolio_path, class: "nav-link"
+        %li.nav-item
+          = link_to "My Profile", edit_user_registration_path, class: "nav-link"
+      %ul.navbar-nav.my-2.my-lg-0
+        %li.nav-item
+          .nav-link
+            %i.fa.fa-user
+            = current_user.full_name != "Anonymous" ? current_user.full_name : current_user.email
+        %li.nav-item
+          = link_to "logout", destroy_user_session_path, method: :delete,
+                              class: "btn btn-sm btn-danger nav-link"
+        %li.nav-item.active
