@@ -1,1 +1,25 @@
-%h1 My friends!!!
+- if @friendships.size > 0
+  %table.table.table-striped.text-center
+    %thead
+      %tr
+        %th.page-header{colspan: "3"}
+          %h2
+            My friends
+      %tr
+        %th Name
+        %th Email
+        %th Actions
+    %tbody
+      - @friendships.each do |friend|
+        %tr
+          %td #{ friend.full_name }
+          %td #{ friend.email }
+          %td
+            = link_to "View Profile",user_path(friend), class: "btn btn-sm btn-primary"
+            = link_to "Delete friend", friendships_path(friend), method: :delete,
+                              class: "btn btn-sm btn-danger",
+                              data: {confirm: "Do you want to unfollow #{friend.full_name}"}
+- else
+  .col-md-12
+    %p.lead
+      You don't have any friends.
