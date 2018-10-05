@@ -1,6 +1,6 @@
 %h1 My friends
 #results2
-  = render 'friends/result' 
+  = render 'friends/result'
 %h3 Search for Friends
 %div.p-0
   = form_tag search_friends_path, remote:true, method: :get, id: "friend_search_form" do
@@ -11,4 +11,4 @@
       .col-md-3
         = button_tag(type: :submit, class: "btn btn-success") do
           %i.fa.fa-search
-          Look up a stock
+          Look up a friend
