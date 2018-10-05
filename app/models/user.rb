@@ -41,4 +41,20 @@ class User < ApplicationRecord
   def self.matches(column, required)
     where("#{column} like ?", "%#{required}%")
   end
+
+  # Dlaczego to nie dziala??????
+  # def self.remove_me
+  #   self.reject { |person| person.id == current_user.id }
+  # end
+
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  def already_friend(person)
+    friendships.where(friend_id: person.id).exists?
+  end
+
+
 end

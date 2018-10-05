@@ -1,6 +1,28 @@
 - if !@users.blank?
-  %h1
-    #{@users.first.email}
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+          Full_name
+        %th
+          Email
+        %th
+          Actions
+    %tbody
+    - @users.each do |user|
+      %tr
+        %th
+          #{ user.full_name }
+        %th
+          #{ user.email }
+        %th
+          =link_to "View Profile", user_path(user), class: "btn btn-sm btn-primary"
+          - if current_user.already_friend(user)
+            .badge-badge-secondary
+              You are already friends
+          - else
+            = link_to "Add friend", add_friend_path(user), method: :post, class: "btn btn-sm btn-primary"
+
 - else
-  %p
-    no results yet
+  .card.p-2
+    %h5.card-title Look for your friends
