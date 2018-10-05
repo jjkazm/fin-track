@@ -1,4 +1,6 @@
 %h1 My friends
+#results2
+  = render 'friends/result' 
 %h3 Search for Friends
 %div.p-0
   = form_tag search_friends_path, remote:true, method: :get, id: "friend_search_form" do

@@ -26,4 +26,19 @@ class User < ApplicationRecord
   def can_be_added?(ticker)
     return true  unless (already_added?(ticker) || above_limit?)
   end
+
+  def self.search(param, columns)
+    param.strip!
+    param.downcase!
+    result = []
+    columns.each do |col|
+      result += matches(col, param)
+    end
+    return nil unless result
+    result.uniq
+  end
+
+  def self.matches(column, required)
+    where("#{column} like ?", "%#{required}%")
+  end
 end
