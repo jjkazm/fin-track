@@ -16,12 +16,12 @@
         %th
           #{ user.email }
         %th
-          =link_to "View Profile", user_path(user), class: "btn btn-sm btn-primary"
+          =link_to "View Profile", user_path(user), class: "btn btn-sm btn-success"
           - if current_user.already_friend(user)
-            .badge-badge-secondary
+            .badge.badge-secondary
               You are already friends
           - else
-            = link_to "Add friend", add_friend_path(user: current_user, friend: user), method: :post, class: "btn btn-sm btn-primary"
+            = link_to "Add friend", add_friend_path(friend: user), method: :post, class: "btn btn-sm btn-success"
 
 - else
   .card.p-2
