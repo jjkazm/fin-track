@@ -1,0 +1,17 @@
+%h2 User Details
+%dl.dl-horizontal
+  .row
+    %dt.col-md-2
+      %strong
+        Full Name:
+    %dd.col-md-3
+      #{@user.full_name}
+  .row
+    %dt.col-md-2
+      %strong
+        Email:
+    %dd.col-md-3
+      #{@user.email}
+
+-if !@user.stocks.blank?
+  = render 'stocks/list'
