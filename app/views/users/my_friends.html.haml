@@ -17,7 +17,7 @@
           %td #{ friend.email }
           %td
             = link_to "View Profile",user_path(friend), class: "btn btn-sm btn-primary"
-            = link_to "Delete friend", friendships_path(friend), method: :delete,
+            = link_to "Delete friend", friendship_path(friend), method: :delete,
                               class: "btn btn-sm btn-danger",
                               data: {confirm: "Do you want to unfollow #{friend.full_name}"}
 - else
